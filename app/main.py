@@ -10,13 +10,13 @@ def copy_file(command: str) -> None:
         fichier_destination = la_commande[2]
 
         if fichier_originaire == fichier_destination or commande != "cp":
-            print("commande ou noms fichiers incorrectes")
+            return
         else:
             try:
                 with (open(fichier_originaire,
-                           "r", encoding="utf8") as file1,
+                           "r", encoding="utf8") as source_file,
                       open(fichier_destination,
-                           "w", encoding="utf8") as file2):
-                    file2.write(file1.read())
+                           "w", encoding="utf8") as destination_file):
+                    destination_file.write(source_file.read())
             except FileNotFoundError:
                 print(f"Erreur :'{fichier_originaire}' est introuvable.")
