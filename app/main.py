@@ -2,7 +2,6 @@ def copy_file(command: str) -> None:
 
     la_commande = command.split()
     if len(la_commande) != 3:
-        print("commande incorrecte")
         return
     else:
         commande = la_commande[0]
@@ -19,4 +18,4 @@ def copy_file(command: str) -> None:
                            "w", encoding="utf8") as destination_file):
                     destination_file.write(source_file.read())
             except FileNotFoundError:
-                print(f"Erreur :'{fichier_originaire}' est introuvable.")
+                return
